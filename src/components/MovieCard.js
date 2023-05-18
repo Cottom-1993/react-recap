@@ -1,6 +1,6 @@
 import React from "react";
 
-constMovieCard = ({movies}) => {
+const MovieCard = ({movies}) => {
     return (
         <div className="movie">         
         <div>
@@ -9,7 +9,7 @@ constMovieCard = ({movies}) => {
 
             <div>
                 {/* if the value of movie.poster IS NOT EQUAL to N/A use the url, ELSE use the placeholder img */}
-                <img src={movies.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/400"} alt ={movie.Title}/>
+                <img src={movies.Poster !== "N/A" ? movies.Poster : "https://via.placeholder.com/400"} alt ={movies.Title}/>
             </div>
 
             <span>{movies.Type}</span>

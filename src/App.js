@@ -10,13 +10,14 @@ function App() {
   const [movies, setMovies] = useState([])
 
 useEffect (() => {
-  searchFilms("Batman")
+  // searchFilms("James Bond")
 }, [])
 
 const searchFilms = async (title) => {
   const req = await fetch (`${API_URL}&s=${title}`)
   const res = await req.json()
-  setMovies(res.search)
+  console.log(res)
+  setMovies(res.Search)
 }
 
   return (
@@ -33,13 +34,22 @@ const searchFilms = async (title) => {
             Click to search for a film
             </button>
       </div>
-      { movie?.length > 0
+      
+      
+      { movies?.length > 0
       // if the movies array is greater than zero i.E movies have been returned from our api
       ?(
         <div className='container'>
           {movies.map((movie)=> (
-            
+           <MovieCard movies={movie} />
           ))}
+          </div>
+          // if movies array is less than zero i.e no mvoies have been returned from our api
+      ) : (
+        <div className="empty">
+
+          <h2> No movies found</h2>
+          </div>
       )
       }
     </div>
